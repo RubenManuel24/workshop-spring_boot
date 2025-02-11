@@ -6,6 +6,7 @@ import java.util.Objects;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.rudev.project.entities.enums.OrderStatus;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -24,6 +25,7 @@ public class Order implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private Instant moment;
+	private Integer orderStatus;
 	
 	@ManyToOne
 	@JoinColumn(name = "client_id")
@@ -33,9 +35,10 @@ public class Order implements Serializable {
 		
 	}
 
-	public Order(Long id, Instant moment, User client) {
+	public Order(Long id, Instant moment, OrderStatus orderStatus, User client) {
 		this.id = id;
 		this.moment = moment;
+		setOrderStatus(orderStatus);
 		this.client = client;
 	}
 
@@ -59,6 +62,13 @@ public class Order implements Serializable {
 		return serialVersionUID;
 	}
 	
+	public OrderStatus getOrderStatus() {
+		return OrderStatus.valueOf(orderStatus);
+	}
+	public void setOrderStatus(OrderStatus orderStatus) {
+		this.orderStatus = orderStatus.getCode();
+	}
+
 	public User getClient() {
 		return client;
 	}
