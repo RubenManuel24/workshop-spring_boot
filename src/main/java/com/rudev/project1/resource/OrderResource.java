@@ -1,5 +1,6 @@
-package com.rudev.project.resource;
+package com.rudev.project1.resource;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,8 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rudev.project.entities.Order;
-import com.rudev.project.service.OrderService;
+import com.rudev.project1.entities.Order;
+import com.rudev.project1.service.OrderService;
 
 @RestController
 @RequestMapping(value = "/orders")

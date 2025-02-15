@@ -1,4 +1,4 @@
-package com.rudev.project;
+package com.rudev.project1;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

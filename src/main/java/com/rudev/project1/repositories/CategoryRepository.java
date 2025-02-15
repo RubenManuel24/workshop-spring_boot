@@ -1,8 +1,8 @@
-package com.rudev.project.repositories;
+package com.rudev.project1.repositories;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.rudev.project.entities.Category;
+import com.rudev.project1.entities.Category;
 
 public interface CategoryRepository extends JpaRepository<Category, Long> {
 

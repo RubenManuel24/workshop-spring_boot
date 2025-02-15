@@ -1,4 +1,4 @@
-package com.rudev.project.entities;
+package com.rudev.project1.entities;
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Objects;

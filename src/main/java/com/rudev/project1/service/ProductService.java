@@ -1,4 +1,4 @@
-package com.rudev.project.service;
+package com.rudev.project1.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -6,8 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.rudev.project.entities.Product;
-import com.rudev.project.repositories.ProductRepository;
+import com.rudev.project1.entities.Product;
+import com.rudev.project1.repositories.ProductRepository;
 
 @Service
 public class ProductService {

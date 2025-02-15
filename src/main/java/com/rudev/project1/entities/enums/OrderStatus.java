@@ -1,4 +1,4 @@
-package com.rudev.project.entities.enums;
+package com.rudev.project1.entities.enums;
 
 public enum OrderStatus {
 	WAITING_PAYMENT(1),

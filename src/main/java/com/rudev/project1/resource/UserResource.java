@@ -1,4 +1,4 @@
-package com.rudev.project.resource;
+package com.rudev.project1.resource;
 
 import java.util.List;
 
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.rudev.project.entities.User;
-import com.rudev.project.service.UserService;
+import com.rudev.project1.entities.User;
+import com.rudev.project1.service.UserService;
 
 @RestController
 @RequestMapping(value = "/users")
