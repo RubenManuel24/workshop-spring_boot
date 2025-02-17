@@ -3,13 +3,14 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import com.rudev.project1.entities.User;
 import com.rudev.project1.repositories.UserRepository;
+import com.rudev.project1.service.exceptions.DataIntegrityViolation;
+import com.rudev.project1.service.exceptions.ResourceNotFoundException;
 
 @Service
 public class UserService {
@@ -23,7 +24,7 @@ public class UserService {
 	
 	public User findById(Long id) {
 		Optional<User> obj = userRepository.findById(id);
-		return obj.get();
+		return obj.orElseThrow(() -> new  ResourceNotFoundException(id));
 	}
 	
 	public User insert(User obj) {
@@ -31,7 +32,14 @@ public class UserService {
 	}
 	
 	public void delete(Long id) {
-		 userRepository.deleteById(id);
+		try {
+			userRepository.deleteById(id);
+		}
+		catch (EmptyResultDataAccessException e) {
+		   throw new ResourceNotFoundException(e.getMessage());
+		} catch(DataIntegrityViolationException e) {
+			throw new DataIntegrityViolation(e.getMessage());
+		}	 
 	}
 	
 	public User update(Long id, User obj){
